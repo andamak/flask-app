@@ -58,12 +58,12 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        source: "docker-compose.yaml, nginx/default.conf"
-        target: "~/app/"
-        script: |
-          sudo docker pull algenda/flask-app
-          sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 5000:5000 algenda/flask-app
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "docker-compose.yaml, nginx/default.conf"
+          target: "~/app/"
+          script: |
+            sudo docker pull algenda/flask-app
+            sudo docker stop $(sudo docker ps -a -q)
+            sudo docker run --rm -d -p 5000:5000 algenda/flask-app
